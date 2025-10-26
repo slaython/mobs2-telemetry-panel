@@ -53,8 +53,8 @@ Existem **duas cópias da chave do Google Maps**:
 2. BACKEND usa a MESMA chave para chamar a Roads API (`snapToRoads`) e alinhar o histórico nas ruas. (/.env)
 3. ⚠️ IMPORTANTE:
 No Google Cloud Console, libere essa chave para uso em localhost e habilite:
-Maps JavaScript API
-Roads API
+- Maps JavaScript API
+- Roads API
 Sem a Roads API, o histórico “snapado” não funciona.
 
 > Você pode usar uma única key e repetir nos dois lugares.
@@ -148,14 +148,14 @@ Você também pode rodar os testes fora do Docker se quiser.
 1. Backend (NestJS)
 
 Dentro da pasta `backend/`:
-npm install
-npm run test
+- npm install
+- npm run test
 
 2. Frontend (Vue)
 
 Dentro da pasta `frontend/`:
-npm install
-npm run test
+- npm install
+- npm run test
 
 ## Observações finais
 

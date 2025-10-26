@@ -157,7 +157,7 @@ Dentro da pasta `frontend/`:
 npm install
 npm run test
 
-## 🔑 Observações finais pro avaliador
+## Observações finais
 
 A Google Roads API precisa estar habilitada no Google Cloud.
 Se não estiver, o app ainda roda — mas o histórico será bruto (sem alinhar na rua).

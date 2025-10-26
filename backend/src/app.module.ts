@@ -1,0 +1,24 @@
+import { Module } from '@nestjs/common'
+import { ConfigModule } from '@nestjs/config'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { VehiclesModule } from './vehicles/vehicles.module'
+
+@Module({
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRootAsync({
+      useFactory: () => ({
+        type: 'postgres',
+        host: process.env.DB_HOST,
+        port: Number(process.env.DB_PORT),
+        username: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME,
+        autoLoadEntities: true,
+        synchronize: process.env.NODE_ENV !== 'production', // cria tabelas no dev
+      }),
+    }),
+    VehiclesModule,
+  ],
+})
+export class AppModule {}

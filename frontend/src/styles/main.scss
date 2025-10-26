@@ -1,0 +1,6 @@
+:root { --bg:#0b1220; --card:#121a2b; --txt:#e6eefc; }
+body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto; background:var(--bg); color:var(--txt); }
+header { padding:16px 24px; background:#0e1730; font-weight:700; }
+.toolbar { display:flex; gap:12px; padding:12px 16px; background:#0e1730; }
+input[type="text"]{ padding:.6rem 1rem; border-radius:8px; border:1px solid #2a3a64; background:#0d1630; color:#fff }
+label{ display:flex; align-items:center; gap:8px }

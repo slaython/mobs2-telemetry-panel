@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: mobs2
+      POSTGRES_PASSWORD: mobs2
+      POSTGRES_DB: mobs2
+    ports: ["5433:5432"]
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    env_file: .env
+    depends_on: [db]
+    ports: ["3000:3000"]
+    command: sh -c "node dist/main.js"
+    environment:
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - VITE_API_URL=${VITE_API_URL}
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=mobs2
+      - DB_PASS=mobs2
+      - DB_NAME=mobs2
+
+  frontend:
+    build: ./frontend
+    env_file: .env
+    depends_on: [backend]
+    ports: ["5173:5173"]
+
+volumes:
+  dbdata:
